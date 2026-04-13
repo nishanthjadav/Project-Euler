@@ -28,20 +28,17 @@ def potentialCalc(s1, s2):
 
 
 def map_strings_to_number(string1, string2, number):
-    # Verify that the number is the same length as the first string
+    
     if len(str(number)) != len(string1):
-        return "Number length doesn't match the length of the first string"
+        return "num len doesnt  match the length of the first string"
 
-    # Check if the two strings contain the same letters in order
     if sorted(string1) != sorted(string2):
-        return "The two strings must contain the same letters in order for the mapping to work"
+        return "The two strings must contain the same letters in order for mapping to work"
 
-    # Create a mapping of each digit of the number to each letter of the first string
     mapping = {}
     for i in range(len(string1)):
         mapping[int(str(number)[i])] = string1[i]
 
-    # Use the mapping to get the number associated with the second string
     mapped_number = ""
     for letter in string2:
         for key, value in mapping.items():
