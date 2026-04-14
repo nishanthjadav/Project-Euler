@@ -1,6 +1,6 @@
 package problems;
 
-public class Euler85
+public class Euler085
 {
 
     public static void main(String[] args) {
