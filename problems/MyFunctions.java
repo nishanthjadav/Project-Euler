@@ -1,4 +1,5 @@
 package problems;
+import java.util.*;
 
 public class MyFunctions
 {
@@ -141,5 +142,46 @@ public class MyFunctions
         }
         return Math.abs(a);
     }
+    public static long[] firstNPrimes(int n) {
+        if (n <= 0) return new long[0];
 
+        int limit = estimateNthPrimeUpperBound(n);
+
+        boolean[] isPrime = sieve(limit);
+
+        long[] primes = new long[n];
+        int count = 0;
+
+        for (int i = 2; i < isPrime.length && count < n; i++) {
+            if (isPrime[i]) {
+                primes[count++] = i;
+            }
+        }
+
+        return primes;
+    }
+
+    public static boolean[] sieve(int limit) {
+        boolean[] isPrime = new boolean[limit + 1];
+        Arrays.fill(isPrime, true);
+
+        if (limit >= 0) isPrime[0] = false;
+        if (limit >= 1) isPrime[1] = false;
+
+        for (int i = 2; i * i <= limit; i++) {
+            if (isPrime[i]) {
+                for (int j = i * i; j <= limit; j += i) {
+                    isPrime[j] = false;
+                }
+            }
+        }
+
+        return isPrime;
+    }
+    private static int estimateNthPrimeUpperBound(long n) {
+        if (n < 6) return 15;
+
+        double nn = n;
+        return (int) (nn * (Math.log(nn) + Math.log(Math.log(nn)))) + 10;
+    }
 }
