@@ -1,6 +1,6 @@
 import math
 
-f = open("C:\\Users\\nisha\\Downloads\\0098_words.txt", "r")
+f = open("path_to_file", "r")
 text = f.read()
 arr = [name.strip('"') for name in text.split(",")]
 
@@ -12,10 +12,10 @@ def isAnagram(s1, s2):
 def potentialCalc(s1, s2):
     largest = 0
     n = len(s1)
-    start = 10 ** (n - 1)  # Smallest n-digit number
-    end = (10 ** n) - 1  # Largest n-digit number
+    start = 10 ** (n - 1)  #
+    end = (10 ** n) - 1
 
-    for num in range(start, end + 1):  # potential values
+    for num in range(start, end + 1):
         if math.sqrt(num).is_integer():
             s2Num = map_strings_to_number(s1, s2, num)
             if math.sqrt(s2Num).is_integer():
@@ -30,10 +30,10 @@ def potentialCalc(s1, s2):
 def map_strings_to_number(string1, string2, number):
     
     if len(str(number)) != len(string1):
-        return "num len doesnt  match the length of the first string"
+        return "num len doesnt match length of first string"
 
     if sorted(string1) != sorted(string2):
-        return "The two strings must contain the same letters in order for mapping to work"
+        return "two strings must contain same letters"
 
     mapping = {}
     for i in range(len(string1)):
