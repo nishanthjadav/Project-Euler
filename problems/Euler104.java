@@ -1,10 +1,11 @@
 package problems;
 import java.math.BigInteger;
 
-//import static problems.MyFunctions.*;
+import static problems.MyFunctions.*;
 
 public class Euler104
 {
+
     public static void main(String[] args)
     {
         BigInteger term1 = BigInteger.ZERO;

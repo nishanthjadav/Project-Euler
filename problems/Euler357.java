@@ -1,5 +1,4 @@
 package problems;
-import static problems.MyFunctions.*;
 
 public class Euler357
 {
