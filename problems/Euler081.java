@@ -25,11 +25,9 @@ public class Euler081
             } catch (IOException e) {
                 e.printStackTrace();
             }
-         // read from file
         int rows = matrix.length;
         int cols = matrix[0].length;
 
-        // Loop through the matrix
         for (int i = 0; i < rows; i++)
         {
             for (int j = 0; j < cols; j++)
